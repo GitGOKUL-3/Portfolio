@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Gokul M - Modern Developer Portfolio">
+    <title>Gokul M | Developer Portfolio</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress-container">
+        <div class="scroll-progress-bar" id="scroll-bar"></div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="logo">GM<span class="neon-dot">.</span></a>
+            <div class="menu-icon" id="menu-icon">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav class="nav-links" id="nav-links">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#education" class="nav-link">Education</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#internship" class="nav-link">Internship</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#gallery" class="nav-link">Gallery</a>
+                <a href="#contact" class="nav-link btn-small">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero section reveal">
+            <div class="hero-bg">
+                <div class="glow-orb orb-1"></div>
+                <div class="glow-orb orb-2"></div>
+            </div>
+            <div class="hero-content">
+                <h3 class="subtitle">Hello, I'm</h3>
+                <h1 class="title">Gokul</h1>
+                <h2 class="roles">
+                    <span class="typing-text" id="typing-text"></span><span class="cursor">|</span>
+                </h2>
+                <p class="intro">
+                    Passionate <span class="highlight">Java Developer</span> with strong programming fundamentals and
+                    hands-on project experience in full-stack development, Android apps, and AI-assisted coding.
+                </p>
+                <div class="hero-cta">
+                    <a href="#projects" class="btn btn-primary">View Projects</a>
+                    <a href="#contact" class="btn btn-outline">Contact Me</a>
+                    <a href="#" class="btn btn-glass"><i class="fas fa-download"></i> Resume</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about section reveal">
+            <div class="container">
+                <h2 class="section-title">About <span class="highlight">Me</span></h2>
+                <div class="about-grid">
+                    <div class="profile-card glass-panel">
+                        <div class="profile-image">
+                            <!-- Placeholder avatar -->
+                            <i class="fas fa-user-astronaut profile-icon"></i>
+                        </div>
+                        <h3>Gokul M</h3>
+                        <p class="tagline">Innovating through Code</p>
+                        <div class="social-mini">
+                            <a href="#"><i class="fab fa-github"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                    <div class="about-info glass-panel">
+                        <h3>My Journey</h3>
+                        <p>I am a versatile technology enthusiast specializing in <span class="highlight">Java
+                                development</span> and <span class="highlight">Full Stack architectures</span>. My
+                            passion lies in solving complex problems and turning innovative ideas into robust digital
+                            solutions.</p>
+                        <p>With experience ranging from <span class="highlight">Android native apps</span> to responsive
+                            web platforms, I embrace the end-to-end development lifecycle. Recently, I've been
+                            integrating <span class="highlight">Generative AI</span> tools into my workflow, enhancing
+                            efficiency through prompt-based coding and AI-assisted debugging.</p>
+                        <div class="traits">
+                            <span class="trait"><i class="fas fa-check-circle"></i> Problem Solving</span>
+                            <span class="trait"><i class="fas fa-check-circle"></i> Teamwork</span>
+                            <span class="trait"><i class="fas fa-check-circle"></i> Fast Learner</span>
+                            <span class="trait"><i class="fas fa-check-circle"></i> AI Adapting</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="education section reveal">
+            <div class="container">
+                <h2 class="section-title">My <span class="highlight">Education</span></h2>
+                <div class="timeline">
+                    <!-- BE -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content glass-panel">
+                            <div class="timeline-date">2021 – 2025</div>
+                            <h3>BE – Electronics and Communication Engineering</h3>
+                            <h4 class="company"><i class="fas fa-university"></i> Sri Shakthi Institute Of Engineering
+                                And Technology, Coimbatore</h4>
+                            <p>CGPA – 7.45</p>
+                        </div>
+                    </div>
+                    <!-- HSC -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content glass-panel">
+                            <div class="timeline-date">2020 – 2021</div>
+                            <h3>HSC</h3>
+                            <h4 class="company"><i class="fas fa-school"></i> Vikas Vidyalaya Matric HR Sec School,
+                                Tirupur</h4>
+                            <p>Percentage – 89.64%</p>
+                        </div>
+                    </div>
+                    <!-- SSLC -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content glass-panel">
+                            <div class="timeline-date">2019</div>
+                            <h3>SSLC</h3>
+                            <h4 class="company"><i class="fas fa-school"></i> Gandhi Vidyalaya Matric HR Sec School,
+                                Tirupur</h4>
+                            <p>Percentage – 88.8%</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="skills section reveal">
+            <div class="container">
+                <h2 class="section-title">My <span class="highlight">Expertise</span></h2>
+                <div class="skills-grid">
+                    <!-- Programming -->
+                    <div class="skill-category glass-panel">
+                        <div class="category-header">
+                            <i class="fas fa-code"></i>
+                            <h3>Programming</h3>
+                        </div>
+                        <div class="skill-list">
+                            <div class="skill-item">
+                                <div class="skill-info"><span>Java</span><span>90%</span></div>
+                                <div class="progress-bar">
+                                    <div class="progress" data-width="90%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info"><span>JavaScript</span><span>85%</span></div>
+                                <div class="progress-bar">
+                                    <div class="progress" data-width="85%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info"><span>TypeScript</span><span>80%</span></div>
+                                <div class="progress-bar">
+                                    <div class="progress" data-width="80%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info"><span>SQL</span><span>85%</span></div>
+                                <div class="progress-bar">
+                                    <div class="progress" data-width="85%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Frontend -->
+                    <div class="skill-category glass-panel">
+                        <div class="category-header">
+                            <i class="fas fa-laptop-code"></i>
+                            <h3>Frontend</h3>
+                        </div>
+                        <div class="skill-list">
+                            <div class="skill-item">
+                                <div class="skill-info"><span>HTML & CSS</span><span>95%</span></div>
+                                <div class="progress-bar">
+                                    <div class="progress" data-width="95%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info"><span>Angular</span><span>75%</span></div>
+                                <div class="progress-bar">
+                                    <div class="progress" data-width="75%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info"><span>Responsive Design</span><span>90%</span></div>
+                                <div class="progress-bar">
+                                    <div class="progress" data-width="90%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Backend / DB -->
+                    <div class="skill-category glass-panel">
+                        <div class="category-header">
+                            <i class="fas fa-server"></i>
+                            <h3>Backend / DB</h3>
+                        </div>
+                        <div class="skill-list">
+                            <div class="skill-item">
+                                <div class="skill-info"><span>MySQL</span><span>85%</span></div>
+                                <div class="progress-bar">
+                                    <div class="progress" data-width="85%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info"><span>JDBC</span><span>80%</span></div>
+                                <div class="progress-bar">
+                                    <div class="progress" data-width="80%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info"><span>REST API</span><span>85%</span></div>
+                                <div class="progress-bar">
+                                    <div class="progress" data-width="85%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info"><span>Node.js / Express</span><span>70%</span></div>
+                                <div class="progress-bar">
+                                    <div class="progress" data-width="70%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Automation Testing -->
+                    <div class="skill-category glass-panel">
+                        <div class="category-header">
+                            <i class="fas fa-vial"></i>
+                            <h3>Testing</h3>
+                        </div>
+                        <div class="skill-list">
+                            <div class="skill-item">
+                                <div class="skill-info"><span>Selenium WebDriver</span><span>80%</span></div>
+                                <div class="progress-bar">
+                                    <div class="progress" data-width="80%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info"><span>UI Testing</span><span>85%</span></div>
+                                <div class="progress-bar">
+                                    <div class="progress" data-width="85%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- AI Assisted Development -->
+                    <div class="skill-category glass-panel">
+                        <div class="category-header">
+                            <i class="fas fa-robot"></i>
+                            <h3>AI Development</h3>
+                        </div>
+                        <div class="skill-list">
+                            <div class="skill-item">
+                                <div class="skill-info"><span>Generative AI Tools</span><span>95%</span></div>
+                                <div class="progress-bar">
+                                    <div class="progress" data-width="95%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info"><span>Prompt-based Coding</span><span>90%</span></div>
+                                <div class="progress-bar">
+                                    <div class="progress" data-width="90%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info"><span>AI Debugging</span><span>90%</span></div>
+                                <div class="progress-bar">
+                                    <div class="progress" data-width="90%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tools -->
+                    <div class="skill-category glass-panel">
+                        <div class="category-header">
+                            <i class="fas fa-tools"></i>
+                            <h3>Tools</h3>
+                        </div>
+                        <div class="skill-tags">
+                            <span class="tag">Git</span>
+                            <span class="tag">GitHub</span>
+                            <span class="tag">Postman</span>
+                            <span class="tag">Android Studio</span>
+                            <span class="tag">VS Code</span>
+                            <span class="tag">IntelliJ IDEA</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Internship Section -->
+        <section id="internship" class="internship section reveal">
+            <div class="container">
+                <h2 class="section-title">Experience & <span class="highlight">Internship</span></h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content glass-panel">
+                            <div class="timeline-date">Feb 2025 – Aug 2025</div>
+                            <h3>Angular Trainee</h3>
+                            <h4 class="company"><i class="fas fa-building"></i> Cryscol IT Solutions</h4>
+                            <p>Played a pivotal role in creating responsive user interfaces. Worked on Angular frontend
+                                architecture, robust REST API integration, critical bug debugging, and overall UI/UX
+                                improvements.</p>
+                        </div>
+                    </div>
+                    <!-- Add more timeline items here if needed -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects section reveal">
+            <div class="container">
+                <h2 class="section-title">Featured <span class="highlight">Projects</span></h2>
+                <div class="projects-grid">
+
+
+                    <!-- Project 1 -->
+                    <div class="project-card glass-panel">
+                        <div class="project-img-wrapper">
+                            <div class="img-placeholder">
+                                <i class="fab fa-android"></i>
+                                <span>Android App Preview</span>
+                            </div>
+                            <div class="project-overlay">
+                                <a href="#" class="btn btn-primary btn-sm"><i class="fas fa-external-link-alt"></i>
+                                    Details</a>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>Card Score Tracker</h3>
+                            <div class="tech-stack">
+                                <span class="tech-tag">Kotlin</span>
+                                <span class="tech-tag">Jetpack Compose</span>
+                                <span class="tech-tag">Room</span>
+                                <span class="tech-tag">MVVM</span>
+                            </div>
+                            <p>Native Android app designed to seamlessly track card game scores with a local database
+
+                                and multiple gaming modes.</p>
+                            <div class="project-links">
+                                <a href="#" class="btn-link"><i class="fab fa-github"></i> GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="project-card glass-panel">
+                        <div class="project-img-wrapper">
+                            <div class="img-placeholder">
+                                <i class="fas fa-chart-line"></i>
+                                <span>Web App Preview</span>
+                            </div>
+                            <div class="project-overlay">
+                                <a href="#" class="btn btn-primary btn-sm"><i class="fas fa-external-link-alt"></i>
+                                    Details</a>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>Habit Tracker</h3>
+                            <div class="tech-stack">
+                                <span class="tech-tag">Angular</span>
+                                <span class="tech-tag">Node.js</span>
+                                <span class="tech-tag">Express</span>
+                                <span class="tech-tag">MySQL</span>
+                            </div>
+                            <p>Full-stack habit tracking web application featuring secure user authentication and
+                                reliable cloud hosting.</p>
+                            <div class="project-links">
+                                <a href="#" class="btn-link"><i class="fas fa-globe"></i> Live Demo</a>
+                                <a href="#" class="btn-link"><i class="fab fa-github"></i> GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="project-card glass-panel">
+                        <div class="project-img-wrapper">
+                            <div class="img-placeholder">
+                                <i class="fas fa-store"></i>
+                                <span>System Preview</span>
+                            </div>
+                            <div class="project-overlay">
+                                <a href="#" class="btn btn-primary btn-sm"><i class="fas fa-external-link-alt"></i>
+                                    Details</a>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>Store Management System</h3>
+                            <div class="tech-stack">
+                                <span class="tech-tag">Java</span>
+                                <span class="tech-tag">MySQL</span>
+                                <span class="tech-tag">OOP</span>
+                                <span class="tech-tag">JDBC</span>
+                            </div>
+                            <p>A console based inventory and sales management system prioritizing clean OOP principles
+                                and
+                                seamless database integration.</p>
+                            <div class="project-links">
+                                <a href="#" class="btn-link"><i class="fab fa-github"></i> GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 4 -->
+                    <div class="project-card glass-panel">
+                        <div class="project-img-wrapper">
+                            <div class="img-placeholder">
+                                <i class="fas fa-bus"></i>
+                                <span>System Preview</span>
+                            </div>
+                            <div class="project-overlay">
+                                <a href="#" class="btn btn-primary btn-sm"><i class="fas fa-external-link-alt"></i>
+                                    Details</a>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>Bus Reservation System</h3>
+                            <div class="tech-stack">
+                                <span class="tech-tag">Java</span>
+                                <span class="tech-tag">MySQL</span>
+                                <span class="tech-tag">OOP</span>
+                            </div>
+                            <p>A console based ticket booking system with authentication, seat selection, and an admin
+                                dashboard for efficient schedule management.</p>
+                            <div class="project-links">
+                                <a href="#" class="btn-link"><i class="fab fa-github"></i> GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Screenshot Gallery Section -->
+        <section id="gallery" class="gallery section reveal">
+            <div class="container">
+                <h2 class="section-title">Project <span class="highlight">Gallery</span></h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item glass-panel">
+                        <div class="gallery-img-wrapper">
+                            <div class="img-placeholder"><i class="fas fa-image"></i></div>
+                        </div>
+                        <div class="gallery-info">
+                            <h4>Card Score Tracker UI</h4>
+                            <div class="gallery-actions">
+                                <button class="btn btn-sm btn-outline"><i class="fas fa-search-plus"></i> View</button>
+                                <a href="#projects" class="btn btn-sm btn-glass">Project</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item glass-panel">
+                        <div class="gallery-img-wrapper">
+                            <div class="img-placeholder"><i class="fas fa-image"></i></div>
+                        </div>
+                        <div class="gallery-info">
+                            <h4>Habit Tracker Dashboard</h4>
+                            <div class="gallery-actions">
+                                <button class="btn btn-sm btn-outline"><i class="fas fa-search-plus"></i> View</button>
+                                <a href="#projects" class="btn btn-sm btn-glass">Project</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact section reveal">
+            <div class="container">
+                <h2 class="section-title">Get In <span class="highlight">Touch</span></h2>
+                <div class="contact-wrapper">
+                    <div class="contact-info glass-panel">
+                        <h3>Contact Information</h3>
+                        <!-- <p>Feel free to reach out to me for any questions or opportunities!</p> -->
+                        <div class="info-items">
+                            <div class="info-item">
+                                <div class="icon-box"><i class="fas fa-envelope"></i></div>
+                                <div>
+                                    <h4>Email</h4>
+                                    <a href="mailto:gokul@example.com">gokul@example.com</a>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="icon-box"><i class="fas fa-phone-alt"></i></div>
+                                <div>
+                                    <h4>Phone</h4>
+                                    <a href="tel:+1234567890">+1 234 567 890</a>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="icon-box"><i class="fab fa-github"></i></div>
+                                <div>
+                                    <h4>GitHub</h4>
+                                    <a href="#" target="_blank">github.com/gokul</a>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="icon-box"><i class="fab fa-linkedin"></i></div>
+                                <div>
+                                    <h4>LinkedIn</h4>
+                                    <a href="#" target="_blank">linkedin.com/in/gokul</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">GM<span class="neon-dot">.</span></div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+                <p>&copy; 2026 Gokul M. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom Script -->
+    <script src="script.js"></script>
+</body>
+
+</html>
