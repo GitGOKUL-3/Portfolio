@@ -161,4 +161,140 @@ document.addEventListener('DOMContentLoaded', () => {
             contactForm.reset();
         });
     }
+
+    /* ==========================================================================
+       6. Lightbox Gallery
+       ========================================================================== */
+    const galleries = {
+        'cards-android': [
+            'Assests/Cards-Android/Screenshot_20260326-112905.png',
+            'Assests/Cards-Android/Screenshot_20260326-115636.png',
+            'Assests/Cards-Android/Screenshot_20260326-112836.png',
+            'Assests/Cards-Android/Screenshot_20260326-112846.png',
+            'Assests/Cards-Android/Screenshot_20260326-115705.png',
+            'Assests/Cards-Android/Screenshot_20260326-115755.png',
+            'Assests/Cards-Android/Screenshot_20260326-115801.png',
+            'Assests/Cards-Android/Screenshot_20260326-115824.png',
+            'Assests/Cards-Android/Screenshot_20260326-115945.png',
+            'Assests/Cards-Android/Screenshot_20260326-120927.png',
+            'Assests/Cards-Android/Screenshot_20260326-120931.png',
+            'Assests/Cards-Android/Screenshot_20260326-121051.png',
+            'Assests/Cards-Android/Screenshot_20260326-121109.png',
+            'Assests/Cards-Android/Screenshot_20260326-121116.png'
+        ],
+        'habit-tracker': [
+            'Assests/Habit-Tracker/Screenshot 2026-03-24 145359.png',
+            'Assests/Habit-Tracker/Screenshot 2026-03-24 145425.png',
+            'Assests/Habit-Tracker/Screenshot 2026-03-24 145437.png',
+            'Assests/Habit-Tracker/Screenshot 2026-03-24 145454.png',
+            'Assests/Habit-Tracker/Screenshot 2026-03-24 145512.png',
+            'Assests/Habit-Tracker/Screenshot 2026-03-24 145520.png',
+            'Assests/Habit-Tracker/Screenshot 2026-03-24 145532.png',
+            'Assests/Habit-Tracker/Screenshot 2026-03-24 145542.png',
+            'Assests/Habit-Tracker/Screenshot 2026-03-24 145606.png',
+            'Assests/Habit-Tracker/Screenshot 2026-03-24 145618.png',
+            'Assests/Habit-Tracker/Screenshot 2026-03-24 145628.png',
+            'Assests/Habit-Tracker/Screenshot 2026-03-24 145729.png'
+        ]
+    };
+
+    const openLightboxBtns = document.querySelectorAll('.open-lightbox');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxClose = document.querySelector('.lightbox-close');
+    const lightboxPrev = document.querySelector('.lightbox-prev');
+    const lightboxNext = document.querySelector('.lightbox-next');
+    const lightboxThumbnails = document.getElementById('lightbox-thumbnails');
+
+    let currentGalleryImages = [];
+    let currentImageIndex = 0;
+
+    if (openLightboxBtns.length > 0 && lightbox) {
+        
+        const updateThumbnails = () => {
+            document.querySelectorAll('.lightbox-thumb').forEach((thumb, index) => {
+                if (index === currentImageIndex) {
+                    thumb.classList.add('active');
+                    // Ensure the thumbnail is visible horizontally in the styled scroll container
+                    thumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                } else {
+                    thumb.classList.remove('active');
+                }
+            });
+        };
+
+        const showImage = (index) => {
+            if (index < 0) index = currentGalleryImages.length - 1;
+            if (index >= currentGalleryImages.length) index = 0;
+            currentImageIndex = index;
+            
+            // Add a small fade effect by altering opacity during image change
+            lightboxImg.style.opacity = 0;
+            setTimeout(() => {
+                lightboxImg.src = currentGalleryImages[currentImageIndex];
+                lightboxImg.style.opacity = 1;
+            }, 150);
+            
+            updateThumbnails();
+        };
+
+        openLightboxBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const galleryId = btn.getAttribute('data-gallery');
+                currentGalleryImages = galleries[galleryId] || galleries['cards-android'];
+                
+                // Populate thumbnails
+                lightboxThumbnails.innerHTML = '';
+                currentGalleryImages.forEach((src, index) => {
+                    const thumb = document.createElement('img');
+                    thumb.src = src;
+                    thumb.classList.add('lightbox-thumb');
+                    if(index === 0) thumb.classList.add('active');
+                    thumb.addEventListener('click', (e) => {
+                        e.stopPropagation(); // prevent modal closing
+                        showImage(index);
+                    });
+                    lightboxThumbnails.appendChild(thumb);
+                });
+
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevent scrolling
+                showImage(0);
+            });
+        });
+
+        lightboxClose.addEventListener('click', () => {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        });
+
+        lightboxPrev.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevent modal from closing if clicking near prev button padding
+            showImage(currentImageIndex - 1);
+        });
+
+        lightboxNext.addEventListener('click', (e) => {
+            e.stopPropagation();
+            showImage(currentImageIndex + 1);
+        });
+
+        // Close on outside click
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox || e.target.classList.contains('lightbox-content')) {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape') {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+            if (e.key === 'ArrowLeft') showImage(currentImageIndex - 1);
+            if (e.key === 'ArrowRight') showImage(currentImageIndex + 1);
+        });
+    }
 });
