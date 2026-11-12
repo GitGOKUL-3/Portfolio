@@ -4,665 +4,818 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Gokul M - Modern Developer Portfolio" />
-  <title>Gokul M | Developer Portfolio</title>
-  <!-- Google Fonts -->
+  <meta name="description"
+    content="Gokul M — Java, full-stack (Angular, Node.js, MySQL), and native Android (Kotlin, Jetpack Compose) developer portfolio." />
+  <title>Gokul M — Software Developer</title>
+  <script>
+    (function () {
+      var saved = null;
+      try {
+        saved = localStorage.getItem('theme');
+      } catch (e) {}
+      var theme;
+      if (saved === 'light' || saved === 'dark') {
+        theme = saved;
+      } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        theme = 'dark';
+      } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+        theme = 'light';
+      } else {
+        var hour = new Date().getHours();
+        theme = (hour >= 6 && hour < 19) ? 'light' : 'dark';
+      }
+      document.documentElement.setAttribute('data-theme', theme);
+      document.documentElement.style.colorScheme = theme;
+    })();
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
     rel="stylesheet" />
-  <!-- FontAwesome for Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <!-- Custom CSS -->
   <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
-  <!-- Scroll Progress Bar -->
-  <div class="scroll-progress-container">
-    <div class="scroll-progress-bar" id="scroll-bar"></div>
-  </div>
-
   <!-- Navigation Bar -->
   <header class="navbar" id="navbar">
     <div class="nav-container">
-      <a href="#hero" class="logo">GM<span class="neon-dot">.</span></a>
-      <div class="menu-icon" id="menu-icon">
-        <i class="fas fa-bars"></i>
-      </div>
-      <nav class="nav-links" id="nav-links">
+      <a href="#hero" class="logo">
+        <span class="logo-mark" aria-hidden="true">GM</span>
+        <span class="logo-name">Gokul M</span>
+      </a>
+
+      <button class="menu-toggle" id="menu-icon" type="button" aria-label="Toggle navigation menu" aria-expanded="false"
+        aria-controls="nav-links">
+        <svg class="icon icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="4" y1="7" x2="20" y2="7" />
+          <line x1="4" y1="12" x2="20" y2="12" />
+          <line x1="4" y1="17" x2="20" y2="17" />
+        </svg>
+        <svg class="icon icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </button>
+
+      <nav class="nav-links" id="nav-links" aria-label="Primary">
         <a href="#about" class="nav-link">About</a>
         <a href="#education" class="nav-link">Education</a>
         <a href="#skills" class="nav-link">Skills</a>
-        <a href="#internship" class="nav-link">Internship</a>
+        <a href="#internship" class="nav-link">Experience</a>
         <a href="#projects" class="nav-link">Projects</a>
         <a href="#gallery" class="nav-link">Gallery</a>
-        <a href="#contact" class="nav-link btn-small">Contact</a>
+        <div class="nav-actions">
+          <a href="#contact" class="nav-cta">Contact</a>
+          <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch to dark mode"
+            title="Toggle color theme">
+            <svg class="icon icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+            </svg>
+            <svg class="icon icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="4" />
+              <path d="M12 2v2" />
+              <path d="M12 20v2" />
+              <path d="m4.93 4.93 1.41 1.41" />
+              <path d="m17.66 17.66 1.41 1.41" />
+              <path d="M2 12h2" />
+              <path d="M20 12h2" />
+              <path d="m6.34 17.66-1.41 1.41" />
+              <path d="m19.07 4.93-1.41 1.41" />
+            </svg>
+          </button>
+        </div>
       </nav>
     </div>
   </header>
 
   <main>
     <!-- Hero Section -->
-    <section id="hero" class="hero section reveal">
-      <div class="hero-bg">
-        <div class="glow-orb orb-1"></div>
-        <div class="glow-orb orb-2"></div>
-      </div>
-      <div class="hero-content">
-        <h3 class="subtitle">Hello, I'm</h3>
-        <h1 class="title">Gokul</h1>
-        <h2 class="roles">
-          <span class="typing-text" id="typing-text"></span><span class="cursor">|</span>
-        </h2>
-        <p class="intro">
-          Passionate <span class="highlight">Java Developer</span> with strong programming fundamentals and
-          hands-on project experience in full-stack development, Android apps, and AI-assisted coding.
-        </p>
-        <div class="hero-cta">
-          <a href="#projects" class="btn btn-primary">View Projects</a>
-          <a href="#contact" class="btn btn-outline">Contact Me</a>
-          <a href="assests/Gokul_Resume.pdf" class="btn btn-glass" download><i class="fas fa-download"></i> Resume</a>
+    <section id="hero" class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="hero-meta">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span>Tirupur, Tamil Nadu</span>
+            <span class="meta-sep" aria-hidden="true">/</span>
+            <span>B.E. ECE 2025</span>
+          </p>
+          <h1 class="hero-title">Java, full-stack, and native Android developer</h1>
+          <p class="hero-intro">
+            Electronics and Communication Engineering graduate with Angular internship experience at Cryscol IT
+            Solutions and shipped projects across Kotlin, Node.js, and MySQL.
+          </p>
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary">View projects</a>
+            <a href="assests/Gokul_Resume.pdf" class="btn btn-secondary" download>
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
+              <span>Download resume</span>
+            </a>
+          </div>
+          <dl class="hero-facts">
+            <div class="hero-fact">
+              <dt>Primary stack</dt>
+              <dd>Java, Angular, Kotlin</dd>
+            </div>
+            <div class="hero-fact">
+              <dt>Internship</dt>
+              <dd>6 months at Cryscol IT</dd>
+            </div>
+            <div class="hero-fact">
+              <dt>Shipped builds</dt>
+              <dd>4 documented projects</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="hero-visual" aria-label="Previews of Habit Tracker and Card Score Tracker">
+          <div class="workbench-web">
+            <div class="frame-bar">
+              <div class="frame-dots" aria-hidden="true">
+                <span></span><span></span><span></span>
+              </div>
+              <span class="frame-label">habit-tracker</span>
+            </div>
+            <img src="assests/Habit-Tracker/Screenshot 2026-03-24 145425.png"
+              alt="Habit Tracker Angular web dashboard showing daily habit checklist and completion streaks"
+              class="frame-img" fetchpriority="high" />
+          </div>
+
+          <div class="workbench-mobile">
+            <div class="phone-frame">
+              <img src="assests/Cards-Android/Screenshot_20260326-112905.png"
+                alt="Card Score Tracker native Android app showing game modes and player setup"
+                class="phone-img" fetchpriority="high" />
+            </div>
+            <div class="workbench-caption">
+              <span class="caption-title">Card Score Tracker</span>
+              <span class="caption-meta">Kotlin · Jetpack Compose</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about section reveal">
+    <!-- 01 · About Section -->
+    <section id="about" class="section reveal">
       <div class="container">
-        <h2 class="section-title">About <span class="highlight">Me</span></h2>
+        <div class="section-header">
+          <span class="section-index">01</span>
+          <h2 class="section-title">About</h2>
+        </div>
+
         <div class="about-grid">
-          <div class="profile-card glass-panel">
-            <div class="profile-image">
-              <!-- Placeholder avatar -->
-              <i class="fas fa-user-astronaut profile-icon"></i>
+          <aside class="sheet identity-sheet">
+            <div class="identity-head">
+              <div class="monogram-tile" aria-hidden="true">GM</div>
+              <div>
+                <h3 class="identity-name">Gokul M</h3>
+                <p class="identity-role">Java &amp; Full-Stack Developer</p>
+              </div>
             </div>
-            <h3>Gokul M</h3>
-            <p class="tagline">Innovating through Code</p>
-            <div class="social-mini">
-              <a href="https://github.com/GitGOKUL-3"><i class="fab fa-github"></i></a>
-              <a href="https://www.linkedin.com/in/gokul-m-2731a4288/"><i class="fab fa-linkedin"></i></a>
+
+            <dl class="spec-list">
+              <div class="spec-row">
+                <dt>Location</dt>
+                <dd>Tirupur, Tamil Nadu</dd>
+              </div>
+              <div class="spec-row">
+                <dt>Degree</dt>
+                <dd>B.E. ECE, 2025</dd>
+              </div>
+              <div class="spec-row">
+                <dt>Last role</dt>
+                <dd>Angular Trainee, Cryscol IT</dd>
+              </div>
+              <div class="spec-row">
+                <dt>Email</dt>
+                <dd><a href="mailto:subashgokul98@gmail.com">subashgokul98@gmail.com</a></dd>
+              </div>
+            </dl>
+
+            <div class="identity-links">
+              <a href="https://github.com/GitGOKUL-3" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path
+                    d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+                  <path d="M9 18c-4.51 2-5-2-7-2" />
+                </svg>
+                <span>GitHub</span>
+              </a>
+              <a href="https://www.linkedin.com/in/gokul-m-2731a4288/" target="_blank" rel="noopener noreferrer"
+                class="btn btn-secondary btn-sm">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                  <rect width="4" height="12" x="2" y="9" />
+                  <circle cx="4" cy="4" r="2" />
+                </svg>
+                <span>LinkedIn</span>
+              </a>
             </div>
-          </div>
-          <div class="about-info glass-panel">
-            <h3>My Journey</h3>
+          </aside>
+
+          <div class="sheet prose-sheet">
+            <h3 class="card-heading">Background</h3>
             <p>
-              I am a versatile technology enthusiast specializing in
-              <span class="highlight">Java development</span> and
-              <span class="highlight">Full Stack architectures</span>. My
-              passion lies in solving complex problems and turning innovative
-              ideas into robust digital solutions.
+              I build software grounded in core Java and relational databases, paired with component-driven frontends in
+              Angular and native Android apps in Kotlin and Jetpack Compose.
             </p>
             <p>
-              With experience ranging from
-              <span class="highlight">Android native apps</span> to responsive
-              web platforms, I embrace the end-to-end development lifecycle.
-              Recently, I've been integrating
-              <span class="highlight">Generative AI</span> tools into my
-              workflow, enhancing efficiency through prompt-based coding and
-              AI-assisted debugging.
+              During a six-month internship at Cryscol IT Solutions, I integrated Angular interfaces with backend REST
+              APIs, debugged UI issues, and ran manual verification ahead of deployments. Alongside full-stack and
+              Android builds, I use AI-assisted coding and debugging tools to iterate quickly while keeping architecture
+              structured.
             </p>
-            <div class="traits">
-              <span class="trait"><i class="fas fa-check-circle"></i> Problem Solving</span>
-              <span class="trait"><i class="fas fa-check-circle"></i> Teamwork</span>
-              <span class="trait"><i class="fas fa-check-circle"></i> Fast Learner</span>
-              <span class="trait"><i class="fas fa-check-circle"></i> AI Adapting</span>
+            <div class="focus-areas">
+              <span class="keycap-tag">Java &amp; JDBC</span>
+              <span class="keycap-tag">Angular &amp; TypeScript</span>
+              <span class="keycap-tag">Kotlin &amp; Compose</span>
+              <span class="keycap-tag">Selenium UI Testing</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Education Section -->
-    <section id="education" class="education section reveal">
+    <!-- 02 · Education Section -->
+    <section id="education" class="section reveal">
       <div class="container">
-        <h2 class="section-title">
-          My <span class="highlight">Education</span>
-        </h2>
-        <div class="timeline">
-          <!-- BE -->
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content glass-panel">
-              <div class="timeline-date">2021 – 2025</div>
-              <h3>BE – Electronics and Communication Engineering</h3>
-              <h4 class="company">
-                <i class="fas fa-university"></i> Sri Shakthi Institute Of
-                Engineering And Technology, Coimbatore
-              </h4>
-              <p>CGPA – 7.45</p>
+        <div class="section-header">
+          <span class="section-index">02</span>
+          <h2 class="section-title">Education</h2>
+        </div>
+
+        <div class="sheet table-sheet">
+          <div class="edu-row">
+            <div class="edu-period">2021 – 2025</div>
+            <div class="edu-main">
+              <h3>B.E. Electronics and Communication Engineering</h3>
+              <p>Sri Shakthi Institute of Engineering and Technology, Coimbatore</p>
             </div>
+            <div class="edu-metric">CGPA 7.45</div>
           </div>
-          <!-- HSC -->
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content glass-panel">
-              <div class="timeline-date">2020 – 2021</div>
-              <h3>HSC</h3>
-              <h4 class="company">
-                <i class="fas fa-school"></i> Vikas Vidyalaya Matric HR Sec
-                School, Tirupur
-              </h4>
-              <p>Percentage – 89.64%</p>
+
+          <div class="edu-row">
+            <div class="edu-period">2020 – 2021</div>
+            <div class="edu-main">
+              <h3>HSC (Class XII)</h3>
+              <p>Vikas Vidyalaya Matric Hr. Sec. School, Tirupur</p>
             </div>
+            <div class="edu-metric">89.64%</div>
           </div>
-          <!-- SSLC -->
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content glass-panel">
-              <div class="timeline-date">2019</div>
-              <h3>SSLC</h3>
-              <h4 class="company">
-                <i class="fas fa-school"></i> Gandhi Vidyalaya Matric HR Sec
-                School, Tirupur
-              </h4>
-              <p>Percentage – 88.8%</p>
+
+          <div class="edu-row">
+            <div class="edu-period">2019</div>
+            <div class="edu-main">
+              <h3>SSLC (Class X)</h3>
+              <p>Gandhi Vidyalaya Matric Hr. Sec. School, Tirupur</p>
             </div>
+            <div class="edu-metric">88.8%</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="skills section reveal">
+    <!-- 03 · Skills Section -->
+    <section id="skills" class="section reveal">
       <div class="container">
-        <h2 class="section-title">
-          My <span class="highlight">Expertise</span>
-        </h2>
+        <div class="section-header">
+          <span class="section-index">03</span>
+          <h2 class="section-title">Technical skills</h2>
+        </div>
+
         <div class="skills-grid">
-          <!-- Programming -->
-          <div class="skill-category glass-panel">
-            <div class="category-header">
-              <i class="fas fa-code"></i>
+          <div class="sheet skill-card">
+            <div class="skill-head">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="16 18 22 12 16 6" />
+                <polyline points="8 6 2 12 8 18" />
+              </svg>
               <h3>Programming</h3>
             </div>
-            <div class="skill-list">
-              <div class="skill-item">
-                <div class="skill-info">
-                  <span>Java</span><span>90%</span>
-                </div>
-                <div class="progress-bar">
-                  <div class="progress" data-width="90%"></div>
-                </div>
-              </div>
-              <div class="skill-item">
-                <div class="skill-info">
-                  <span>JavaScript</span><span>85%</span>
-                </div>
-                <div class="progress-bar">
-                  <div class="progress" data-width="85%"></div>
-                </div>
-              </div>
-              <div class="skill-item">
-                <div class="skill-info">
-                  <span>TypeScript</span><span>80%</span>
-                </div>
-                <div class="progress-bar">
-                  <div class="progress" data-width="80%"></div>
-                </div>
-              </div>
-              <div class="skill-item">
-                <div class="skill-info"><span>SQL</span><span>85%</span></div>
-                <div class="progress-bar">
-                  <div class="progress" data-width="85%"></div>
-                </div>
-              </div>
-            </div>
+            <ul class="skill-chips">
+              <li>Java</li>
+              <li>JavaScript</li>
+              <li>TypeScript</li>
+              <li>SQL</li>
+            </ul>
           </div>
 
-          <!-- Frontend -->
-          <div class="skill-category glass-panel">
-            <div class="category-header">
-              <i class="fas fa-laptop-code"></i>
+          <div class="sheet skill-card">
+            <div class="skill-head">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect width="18" height="18" x="3" y="3" rx="2" />
+                <path d="M3 9h18" />
+                <path d="M9 21V9" />
+              </svg>
               <h3>Frontend</h3>
             </div>
-            <div class="skill-list">
-              <div class="skill-item">
-                <div class="skill-info">
-                  <span>HTML & CSS</span><span>95%</span>
-                </div>
-                <div class="progress-bar">
-                  <div class="progress" data-width="95%"></div>
-                </div>
-              </div>
-              <div class="skill-item">
-                <div class="skill-info">
-                  <span>Angular</span><span>75%</span>
-                </div>
-                <div class="progress-bar">
-                  <div class="progress" data-width="75%"></div>
-                </div>
-              </div>
-              <div class="skill-item">
-                <div class="skill-info">
-                  <span>Responsive Design</span><span>90%</span>
-                </div>
-                <div class="progress-bar">
-                  <div class="progress" data-width="90%"></div>
-                </div>
-              </div>
-            </div>
+            <ul class="skill-chips">
+              <li>HTML5</li>
+              <li>CSS3</li>
+              <li>Angular</li>
+              <li>Responsive Design</li>
+            </ul>
           </div>
 
-          <!-- Backend / DB -->
-          <div class="skill-category glass-panel">
-            <div class="category-header">
-              <i class="fas fa-server"></i>
-              <h3>Backend / DB</h3>
+          <div class="sheet skill-card">
+            <div class="skill-head">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <ellipse cx="12" cy="5" rx="9" ry="3" />
+                <path d="M3 5v14a9 3 0 0 0 18 0V5" />
+                <path d="M3 12a9 3 0 0 0 18 0" />
+              </svg>
+              <h3>Backend &amp; database</h3>
             </div>
-            <div class="skill-list">
-              <div class="skill-item">
-                <div class="skill-info">
-                  <span>MySQL</span><span>85%</span>
-                </div>
-                <div class="progress-bar">
-                  <div class="progress" data-width="85%"></div>
-                </div>
-              </div>
-              <div class="skill-item">
-                <div class="skill-info">
-                  <span>JDBC</span><span>80%</span>
-                </div>
-                <div class="progress-bar">
-                  <div class="progress" data-width="80%"></div>
-                </div>
-              </div>
-              <div class="skill-item">
-                <div class="skill-info">
-                  <span>REST API</span><span>85%</span>
-                </div>
-                <div class="progress-bar">
-                  <div class="progress" data-width="85%"></div>
-                </div>
-              </div>
-              <div class="skill-item">
-                <div class="skill-info">
-                  <span>Node.js / Express</span><span>70%</span>
-                </div>
-                <div class="progress-bar">
-                  <div class="progress" data-width="70%"></div>
-                </div>
-              </div>
-            </div>
+            <ul class="skill-chips">
+              <li>MySQL</li>
+              <li>JDBC</li>
+              <li>REST APIs</li>
+              <li>Node.js &amp; Express</li>
+            </ul>
           </div>
 
-          <!-- Automation Testing -->
-          <div class="skill-category glass-panel">
-            <div class="category-header">
-              <i class="fas fa-vial"></i>
+          <div class="sheet skill-card">
+            <div class="skill-head">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M9 11l3 3L22 4" />
+                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+              </svg>
               <h3>Testing</h3>
             </div>
-            <div class="skill-list">
-              <div class="skill-item">
-                <div class="skill-info">
-                  <span>Selenium WebDriver</span><span>80%</span>
-                </div>
-                <div class="progress-bar">
-                  <div class="progress" data-width="80%"></div>
-                </div>
-              </div>
-              <div class="skill-item">
-                <div class="skill-info">
-                  <span>UI Testing</span><span>85%</span>
-                </div>
-                <div class="progress-bar">
-                  <div class="progress" data-width="85%"></div>
-                </div>
-              </div>
-            </div>
+            <ul class="skill-chips">
+              <li>Selenium WebDriver (Java)</li>
+              <li>UI Testing</li>
+              <li>Manual Testing</li>
+            </ul>
           </div>
 
-          <!-- AI Assisted Development -->
-          <div class="skill-category glass-panel">
-            <div class="category-header">
-              <i class="fas fa-robot"></i>
-              <h3>AI Development</h3>
+          <div class="sheet skill-card">
+            <div class="skill-head">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 20h9" />
+                <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z" />
+              </svg>
+              <h3>AI-assisted workflow</h3>
             </div>
-            <div class="skill-list">
-              <div class="skill-item">
-                <div class="skill-info">
-                  <span>Generative AI Tools</span><span>95%</span>
-                </div>
-                <div class="progress-bar">
-                  <div class="progress" data-width="95%"></div>
-                </div>
-              </div>
-              <div class="skill-item">
-                <div class="skill-info">
-                  <span>Prompt-based Coding</span><span>90%</span>
-                </div>
-                <div class="progress-bar">
-                  <div class="progress" data-width="90%"></div>
-                </div>
-              </div>
-              <div class="skill-item">
-                <div class="skill-info">
-                  <span>AI Debugging</span><span>90%</span>
-                </div>
-                <div class="progress-bar">
-                  <div class="progress" data-width="90%"></div>
-                </div>
-              </div>
-            </div>
+            <ul class="skill-chips">
+              <li>Generative AI tools</li>
+              <li>Prompt-based coding</li>
+              <li>AI debugging</li>
+            </ul>
           </div>
 
-          <!-- Tools -->
-          <div class="skill-category glass-panel">
-            <div class="category-header">
-              <i class="fas fa-tools"></i>
+          <div class="sheet skill-card">
+            <div class="skill-head">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path
+                  d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+              </svg>
               <h3>Tools</h3>
             </div>
-            <div class="skill-tags">
-              <span class="tag">Git</span>
-              <span class="tag">GitHub</span>
-              <span class="tag">Postman</span>
-              <span class="tag">Android Studio</span>
-              <span class="tag">VS Code</span>
-              <span class="tag">IntelliJ IDEA</span>
-            </div>
+            <ul class="skill-chips">
+              <li>Git &amp; GitHub</li>
+              <li>Postman</li>
+              <li>Android Studio</li>
+              <li>VS Code</li>
+              <li>IntelliJ IDEA</li>
+              <li>Eclipse</li>
+            </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Internship Section -->
-    <section id="internship" class="internship section reveal">
+    <!-- 04 · Internship Section -->
+    <section id="internship" class="section reveal">
       <div class="container">
-        <h2 class="section-title">
-          Experience & <span class="highlight">Internship</span>
-        </h2>
-        <div class="timeline">
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content glass-panel">
-              <div class="timeline-date">Feb 2025 – Aug 2025</div>
-              <h3>Angular Trainee</h3>
-              <h4 class="company">
-                <i class="fas fa-building"></i> Cryscol IT Solutions
-              </h4>
-              <p>
-                Played a pivotal role in creating responsive user interfaces.
-                Worked on Angular frontend architecture, robust REST API
-                integration, critical bug debugging, and overall UI/UX
-                improvements.
+        <div class="section-header">
+          <span class="section-index">04</span>
+          <h2 class="section-title">Experience</h2>
+        </div>
+
+        <article class="sheet experience-sheet">
+          <div class="experience-aside">
+            <span class="mono-date">Feb 2025 – Aug 2025</span>
+            <h3 class="experience-role">Angular Trainee</h3>
+            <p class="experience-company">Cryscol IT Solutions</p>
+            <a href="assests/GOKUL%20MARISELVAM-Internship-Experience%20Letter_signed_signed%20(1).pdf" target="_blank"
+              rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                <polyline points="15 3 21 3 21 9" />
+                <line x1="10" y1="14" x2="21" y2="3" />
+              </svg>
+              <span>View experience letter</span>
+            </a>
+          </div>
+
+          <div class="experience-body">
+            <ul class="experience-points">
+              <li>Collaborated with the engineering team to connect Angular frontend modules with backend REST APIs.</li>
+              <li>Debugged UI defects, tuned component performance, and refined responsive page layouts.</li>
+              <li>Executed manual UI testing to validate behavior and catch regressions prior to deployment.</li>
+            </ul>
+            <div class="stack-row">
+              <span class="keycap-tag">Angular</span>
+              <span class="keycap-tag">TypeScript</span>
+              <span class="keycap-tag">HTML5 &amp; CSS3</span>
+              <span class="keycap-tag">REST APIs</span>
+              <span class="keycap-tag">UI Testing</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 05 · Projects Section -->
+    <section id="projects" class="section reveal">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-index">05</span>
+          <h2 class="section-title">Selected projects</h2>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Project 1 -->
+          <article class="sheet project-card">
+            <div class="project-media project-media-mobile">
+              <img src="assests/Cards-Android/Screenshot_20260326-112905.png"
+                alt="Card Score Tracker Android setup screen" class="mobile-shot" />
+              <img src="assests/Cards-Android/Screenshot_20260326-112846.png"
+                alt="Card Score Tracker Android game details and round breakdown screen" class="mobile-shot" />
+            </div>
+            <div class="project-body">
+              <div class="project-head">
+                <h3>Card Score Tracker</h3>
+                <span class="project-kind">Android</span>
+              </div>
+              <p class="project-desc">
+                Native Android app for tracking multi-player card game sessions offline with Room local storage, MVVM
+                architecture, round history, and score export.
               </p>
-              <div style="margin-top: 1rem;">
-                <a href="Assests/GOKUL%20MARISELVAM-Internship-Experience%20Letter_signed_signed%20(1).pdf"
-                  target="_blank" class="btn btn-sm btn-outline">
-                  <i class="fas fa-link"></i> View Certificate
+              <div class="stack-row">
+                <span class="keycap-tag">Kotlin</span>
+                <span class="keycap-tag">Jetpack Compose</span>
+                <span class="keycap-tag">Room</span>
+                <span class="keycap-tag">MVVM</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://github.com/GitGOKUL-3/Cards-Score-Tracker-Android.git" target="_blank"
+                  rel="noopener noreferrer" class="text-link">
+                  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path
+                      d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+                    <path d="M9 18c-4.51 2-5-2-7-2" />
+                  </svg>
+                  <span>GitHub</span>
+                </a>
+                <button type="button" class="text-link open-lightbox" data-gallery="cards-android">
+                  <span>View 14 screens</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 2 -->
+          <article class="sheet project-card">
+            <div class="project-media project-media-web">
+              <img src="assests/Habit-Tracker/Screenshot 2026-03-24 145425.png"
+                alt="Habit Tracker web dashboard showing daily habits and progress streaks" class="web-shot" />
+            </div>
+            <div class="project-body">
+              <div class="project-head">
+                <h3>Habit Tracker</h3>
+                <span class="project-kind">Full-stack web</span>
+              </div>
+              <p class="project-desc">
+                Full-stack habit tracking web application with authenticated accounts, REST APIs for daily check-ins and
+                progress reports, and MySQL persistence.
+              </p>
+              <div class="stack-row">
+                <span class="keycap-tag">Angular</span>
+                <span class="keycap-tag">Node.js</span>
+                <span class="keycap-tag">Express</span>
+                <span class="keycap-tag">MySQL</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://haabit-traacker.netlify.app/login" target="_blank" rel="noopener noreferrer"
+                  class="text-link">
+                  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="2" y1="12" x2="22" y2="12" />
+                    <path
+                      d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                  </svg>
+                  <span>Live demo</span>
+                </a>
+                <a href="https://github.com/GitGOKUL-3/Habit-Tracker-Fullstack.git" target="_blank"
+                  rel="noopener noreferrer" class="text-link">
+                  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path
+                      d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+                    <path d="M9 18c-4.51 2-5-2-7-2" />
+                  </svg>
+                  <span>GitHub</span>
+                </a>
+                <button type="button" class="text-link open-lightbox" data-gallery="habit-tracker">
+                  <span>View 12 screens</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 3 -->
+          <article class="sheet project-card">
+            <div class="project-media project-media-cli" aria-hidden="true">
+              <div class="cli-chrome">
+                <span>StoreManagementSystem.java</span>
+                <span>JDBC · MySQL</span>
+              </div>
+              <pre class="cli-body"><code>$ java -cp .:mysql-connector.jar StoreApp
+[Role: Admin] Authenticated
+1. Inventory &amp; stock levels
+2. Supplier registry
+3. Record sale &amp; generate report
+Select option &gt; 3</code></pre>
+            </div>
+            <div class="project-body">
+              <div class="project-head">
+                <h3>Store Management System</h3>
+                <span class="project-kind">Java CLI</span>
+              </div>
+              <p class="project-desc">
+                Console inventory and sales application structured around OOP modules for supplier stock tracking,
+                sales reporting, role-based access, and JDBC MySQL queries.
+              </p>
+              <div class="stack-row">
+                <span class="keycap-tag">Java</span>
+                <span class="keycap-tag">MySQL</span>
+                <span class="keycap-tag">OOP</span>
+                <span class="keycap-tag">JDBC</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://github.com/GitGOKUL-3/Store-Management-System.git" target="_blank"
+                  rel="noopener noreferrer" class="text-link">
+                  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path
+                      d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+                    <path d="M9 18c-4.51 2-5-2-7-2" />
+                  </svg>
+                  <span>GitHub</span>
                 </a>
               </div>
             </div>
-          </div>
-          <!-- Add more timeline items here if needed -->
-        </div>
-      </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="projects section reveal">
-      <div class="container">
-        <h2 class="section-title">
-          Featured <span class="highlight">Projects</span>
-        </h2>
-        <div class="projects-grid">
-          <!-- Project 1 -->
-          <div class="project-card glass-panel">
-            <div class="project-img-wrapper"
-              style="background-image: url('Assests/Cards-Android/Screenshot_20260326-112836.png'); background-size: cover; background-position: top;">
-              <div class="img-placeholder" style="background: rgba(0,0,0,0.6);">
-                <i class="fab fa-android"></i>
-                <span>Android App Preview</span>
-              </div>
-              <div class="project-overlay">
-                <a href="#gallery" class="btn btn-primary btn-sm"><i class="fas fa-external-link-alt"></i> Details</a>
-              </div>
-            </div>
-            <div class="project-content">
-              <h3>Card Score Tracker</h3>
-              <div class="tech-stack">
-                <span class="tech-tag">Kotlin</span>
-                <span class="tech-tag">Jetpack Compose</span>
-                <span class="tech-tag">Room</span>
-                <span class="tech-tag">MVVM</span>
-              </div>
-              <p>
-                Native Android app designed to seamlessly track card game
-                scores with a local database and multiple gaming modes.
-              </p>
-              <div class="project-links">
-                <a href="https://github.com/GitGOKUL-3/Cards-Score-Tracker-Android.git" class="btn-link"><i
-                    class="fab fa-github"></i> GitHub</a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Project 2 -->
-          <div class="project-card glass-panel">
-            <div class="project-img-wrapper"
-              style="background-image: url('Assests/Habit-Tracker/Screenshot 2026-03-24 145359.png'); background-size: cover; background-position: top;">
-              <div class="img-placeholder" style="background: rgba(0,0,0,0.6);">
-                <i class="fas fa-chart-line"></i>
-                <span>Web App Preview</span>
-              </div>
-              <div class="project-overlay">
-                <a href="#gallery" class="btn btn-primary btn-sm"><i class="fas fa-external-link-alt"></i> Details</a>
-              </div>
-            </div>
-            <div class="project-content">
-              <h3>Habit Tracker</h3>
-              <div class="tech-stack">
-                <span class="tech-tag">Angular</span>
-                <span class="tech-tag">Node.js</span>
-                <span class="tech-tag">Express</span>
-                <span class="tech-tag">MySQL</span>
-              </div>
-              <p>
-                Full-stack habit tracking web application featuring secure
-                user authentication and reliable cloud hosting.
-              </p>
-              <div class="project-links">
-                <a href="https://haabit-traacker.netlify.app/login" class="btn-link"><i class="fas fa-globe"></i> Live
-                  Demo</a>
-                <a href="https://github.com/GitGOKUL-3/Habit-Tracker-Fullstack.git" class="btn-link"><i
-                    class="fab fa-github"></i> GitHub</a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Project 3 -->
-          <div class="project-card glass-panel">
-            <div class="project-img-wrapper">
-              <div class="img-placeholder">
-                <i class="fas fa-store"></i>
-                <span>System Preview</span>
-              </div>
-              <div class="project-overlay">
-                <a href="https://github.com/GitGOKUL-3/Store-Management-System.git" class="btn btn-primary btn-sm"><i
-                    class="fas fa-external-link-alt"></i> Details</a>
-              </div>
-            </div>
-            <div class="project-content">
-              <h3>Store Management System</h3>
-              <div class="tech-stack">
-                <span class="tech-tag">Java</span>
-                <span class="tech-tag">MySQL</span>
-                <span class="tech-tag">OOP</span>
-                <span class="tech-tag">JDBC</span>
-              </div>
-              <p>
-                A console based inventory and sales management system
-                prioritizing clean OOP principles and seamless database
-                integration.
-              </p>
-              <div class="project-links">
-                <a href="https://github.com/GitGOKUL-3/Store-Management-System.git" class="btn-link"><i
-                    class="fab fa-github"></i> GitHub</a>
-              </div>
-            </div>
-          </div>
+          </article>
 
           <!-- Project 4 -->
-          <div class="project-card glass-panel">
-            <div class="project-img-wrapper">
-              <div class="img-placeholder">
-                <i class="fas fa-bus"></i>
-                <span>System Preview</span>
+          <article class="sheet project-card">
+            <div class="project-media project-media-cli" aria-hidden="true">
+              <div class="cli-chrome">
+                <span>BusReservationSystem.java</span>
+                <span>Java · MySQL</span>
               </div>
-              <div class="project-overlay">
-                <a href="https://github.com/GitGOKUL-3/Bus-Reservation-System.git" class="btn btn-primary btn-sm"><i
-                    class="fas fa-external-link-alt"></i> Details</a>
-              </div>
+              <pre class="cli-body"><code>$ java BusReservationApp
+Route: CBE -&gt; CHN | Departure: 21:30
+Available seats: [04, 07, 12, 18, 22]
+Admin menu: schedules / bookings / cancel
+Enter seat number &gt; 12</code></pre>
             </div>
-            <div class="project-content">
-              <h3>Bus Reservation System</h3>
-              <div class="tech-stack">
-                <span class="tech-tag">Java</span>
-                <span class="tech-tag">MySQL</span>
-                <span class="tech-tag">OOP</span>
+            <div class="project-body">
+              <div class="project-head">
+                <h3>Bus Reservation System</h3>
+                <span class="project-kind">Java CLI</span>
               </div>
-              <p>
-                A console based ticket booking system with authentication,
-                seat selection, and an admin dashboard for efficient schedule
-                management.
+              <p class="project-desc">
+                Console ticket booking system with user authentication, interactive seat selection, and an admin module
+                for managing bus routes and schedules.
               </p>
-              <div class="project-links">
-                <a href="https://github.com/GitGOKUL-3/Bus-Reservation-System.git" class="btn-link"><i
-                    class="fab fa-github"></i> GitHub</a>
+              <div class="stack-row">
+                <span class="keycap-tag">Java</span>
+                <span class="keycap-tag">MySQL</span>
+                <span class="keycap-tag">OOP</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://github.com/GitGOKUL-3/Bus-Reservation-System.git" target="_blank"
+                  rel="noopener noreferrer" class="text-link">
+                  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path
+                      d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+                    <path d="M9 18c-4.51 2-5-2-7-2" />
+                  </svg>
+                  <span>GitHub</span>
+                </a>
               </div>
             </div>
-          </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- Screenshot Gallery Section -->
-    <section id="gallery" class="gallery section reveal">
+    <!-- 06 · Gallery Section -->
+    <section id="gallery" class="section reveal">
       <div class="container">
-        <h2 class="section-title">
-          Project <span class="highlight">Gallery</span>
-        </h2>
+        <div class="section-header">
+          <span class="section-index">06</span>
+          <h2 class="section-title">Screen archive</h2>
+        </div>
+
         <div class="gallery-grid">
+          <article class="sheet gallery-card">
+            <div class="gallery-strip gallery-strip-mobile">
+              <img src="assests/Cards-Android/Screenshot_20260326-112905.png"
+                alt="Card Score Tracker dark theme game mode setup" />
+              <img src="assests/Cards-Android/Screenshot_20260326-115636.png"
+                alt="Card Score Tracker light theme game mode setup" />
+              <img src="assests/Cards-Android/Screenshot_20260326-112846.png"
+                alt="Card Score Tracker round breakdown table" />
+            </div>
+            <div class="gallery-footer">
+              <div>
+                <h3>Card Score Tracker UI</h3>
+                <p class="gallery-count">14 screens · Light &amp; dark Jetpack Compose</p>
+              </div>
+              <button type="button" class="btn btn-secondary btn-sm open-lightbox" data-gallery="cards-android">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M15 3h6v6" />
+                  <path d="M9 21H3v-6" />
+                  <path d="M21 3l-7 7" />
+                  <path d="M3 21l7-7" />
+                </svg>
+                <span>Open gallery</span>
+              </button>
+            </div>
+          </article>
 
-          <div class="gallery-item glass-panel">
-            <div class="gallery-img-wrapper"
-              style="background-image: url('Assests/Cards-Android/Screenshot_20260326-112836.png'); background-size: cover; background-position: top;">
-              <div class="img-placeholder" style="background: rgba(0,0,0,0.6);">
-                <i class="fas fa-mobile-alt"></i>
-              </div>
+          <article class="sheet gallery-card">
+            <div class="gallery-strip gallery-strip-web">
+              <img src="assests/Habit-Tracker/Screenshot 2026-03-24 145425.png"
+                alt="Habit Tracker main dashboard" />
+              <img src="assests/Habit-Tracker/Screenshot 2026-03-24 145437.png"
+                alt="Habit Tracker create new habit dialog" />
             </div>
-            <div class="gallery-info">
-              <h4>Card Score Tracker UI</h4>
-              <div class="gallery-actions">
-                <button class="btn btn-sm btn-outline open-lightbox" data-gallery="cards-android">
-                  <i class="fas fa-search-plus"></i> View Screens
-                </button>
-                <a href="#projects" class="btn btn-sm btn-glass">Project</a>
+            <div class="gallery-footer">
+              <div>
+                <h3>Habit Tracker Dashboard</h3>
+                <p class="gallery-count">12 screens · Angular &amp; Express web app</p>
               </div>
+              <button type="button" class="btn btn-secondary btn-sm open-lightbox" data-gallery="habit-tracker">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M15 3h6v6" />
+                  <path d="M9 21H3v-6" />
+                  <path d="M21 3l-7 7" />
+                  <path d="M3 21l7-7" />
+                </svg>
+                <span>Open gallery</span>
+              </button>
             </div>
-          </div>
-
-          <div class="gallery-item glass-panel">
-            <div class="gallery-img-wrapper"
-              style="background-image: url('Assests/Habit-Tracker/Screenshot 2026-03-24 145359.png'); background-size: cover; background-position: top;">
-              <div class="img-placeholder" style="background: rgba(0,0,0,0.6);">
-                <i class="fas fa-desktop"></i>
-              </div>
-            </div>
-            <div class="gallery-info">
-              <h4>Habit Tracker Dashboard</h4>
-              <div class="gallery-actions">
-                <button class="btn btn-sm btn-outline open-lightbox" data-gallery="habit-tracker">
-                  <i class="fas fa-search-plus"></i> View Screens
-                </button>
-                <a href="#projects" class="btn btn-sm btn-glass">Project</a>
-              </div>
-            </div>
-          </div>
-
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact section reveal">
+    <!-- 07 · Contact Section -->
+    <section id="contact" class="section reveal">
       <div class="container">
-        <h2 class="section-title">Get In <span class="highlight">Touch</span></h2>
-        <div class="contact-wrapper">
-          <div class="contact-info glass-panel">
-            <h3>Contact Information</h3>
-            <!-- <p>Feel free to reach out to me for any questions or opportunities!</p> -->
-            <div class="info-items">
-              <div class="info-item">
-                <div class="icon-box"><i class="fas fa-envelope"></i></div>
-                <div>
-                  <h4>Email</h4>
-                  <a href="mailto:subashgokul98@gmail.com">subashgokul98@gmail.com</a>
-                </div>
+        <div class="section-header">
+          <span class="section-index">07</span>
+          <h2 class="section-title">Contact</h2>
+        </div>
+
+        <div class="sheet contact-sheet">
+          <div class="contact-lead">
+            <h3>Open to Java, full-stack, and Android roles</h3>
+            <p>Reach out directly by email or phone, or inspect code and work history on GitHub and LinkedIn.</p>
+          </div>
+
+          <div class="contact-list">
+            <a href="mailto:subashgokul98@gmail.com" class="contact-item">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect width="20" height="16" x="2" y="4" rx="2" />
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+              </svg>
+              <div>
+                <span class="contact-label">Email</span>
+                <span class="contact-value">subashgokul98@gmail.com</span>
               </div>
-              <div class="info-item">
-                <div class="icon-box"><i class="fas fa-phone-alt"></i></div>
-                <div>
-                  <h4>Phone</h4>
-                  <a href="tel:+91 7094315386">+91 7094315386</a>
-                </div>
+            </a>
+
+            <a href="tel:+917094315386" class="contact-item">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+              </svg>
+              <div>
+                <span class="contact-label">Phone</span>
+                <span class="contact-value">+91 7094315386</span>
               </div>
-              <div class="info-item">
-                <div class="icon-box"><i class="fab fa-github"></i></div>
-                <div>
-                  <h4>GitHub</h4>
-                  <a href="https://github.com/GitGOKUL-3" target="_blank">github.com/GitGOKUL-3</a>
-                </div>
+            </a>
+
+            <a href="https://github.com/GitGOKUL-3" target="_blank" rel="noopener noreferrer" class="contact-item">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path
+                  d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+                <path d="M9 18c-4.51 2-5-2-7-2" />
+              </svg>
+              <div>
+                <span class="contact-label">GitHub</span>
+                <span class="contact-value">github.com/GitGOKUL-3</span>
               </div>
-              <div class="info-item">
-                <div class="icon-box"><i class="fab fa-linkedin"></i></div>
-                <div>
-                  <h4>LinkedIn</h4>
-                  <a href="https://www.linkedin.com/in/gokul-m-2731a4288/"
-                    target="_blank">linkedin.com/in/gokul-m-2731a4288/</a>
-                </div>
+            </a>
+
+            <a href="https://www.linkedin.com/in/gokul-m-2731a4288/" target="_blank" rel="noopener noreferrer"
+              class="contact-item">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                <rect width="4" height="12" x="2" y="9" />
+                <circle cx="4" cy="4" r="2" />
+              </svg>
+              <div>
+                <span class="contact-label">LinkedIn</span>
+                <span class="contact-value">linkedin.com/in/gokul-m-2731a4288</span>
               </div>
-            </div>
+            </a>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Lightbox Modal -->
-    <div id="lightbox" class="lightbox">
-      <span class="lightbox-close">&times;</span>
-      <div class="lightbox-content">
-        <img id="lightbox-img" src="" alt="Screenshot" />
-        <button class="lightbox-prev">
-          <i class="fas fa-chevron-left"></i>
-        </button>
-        <button class="lightbox-next">
-          <i class="fas fa-chevron-right"></i>
+    <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Project screenshot viewer"
+      aria-hidden="true">
+      <div class="lightbox-topbar">
+        <span class="lightbox-counter" id="lightbox-counter">1 / 14</span>
+        <button type="button" class="lightbox-close" aria-label="Close gallery">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
         </button>
       </div>
-      <div class="lightbox-thumbnails" id="lightbox-thumbnails">
-        <!-- Thumbnails injected via JS -->
+      <div class="lightbox-stage">
+        <button type="button" class="lightbox-prev" aria-label="Previous screenshot">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="15 18 9 12 15 6" />
+          </svg>
+        </button>
+        <div class="lightbox-content">
+          <img id="lightbox-img" src="" alt="Project screenshot" />
+        </div>
+        <button type="button" class="lightbox-next" aria-label="Next screenshot">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="9 18 15 12 9 6" />
+          </svg>
+        </button>
       </div>
+      <div class="lightbox-thumbnails" id="lightbox-thumbnails"></div>
     </div>
   </main>
 
   <!-- Footer -->
   <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-logo">GM<span class="neon-dot">.</span></div>
-        <div class="social-links">
-          <a href="https://github.com/GitGOKUL-3" target="_blank"><i class="fab fa-github"></i></a>
-          <a href="https://www.linkedin.com/in/gokul-m-2731a4288/" target="_blank"><i
-              class="fab fa-linkedin-in"></i></a>
-          <!-- <a href="#"><i class="fab fa-twitter"></i></a> -->
-        </div>
-        <p>&copy; 2026 Gokul M. All Rights Reserved.</p>
+    <div class="container footer-inner">
+      <p class="footer-copy">Gokul M · Tirupur, Tamil Nadu · © 2026</p>
+      <div class="footer-links">
+        <a href="https://github.com/GitGOKUL-3" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/gokul-m-2731a4288/" target="_blank"
+          rel="noopener noreferrer">LinkedIn</a>
+        <a href="#hero">Top</a>
       </div>
     </div>
   </footer>
 
-  <!-- Custom Script -->
   <script src="script.js"></script>
 </body>
 
